@@ -2127,7 +2127,7 @@ button,
     flex-shrink: 1;
      display: block;
      margin: 0 0 2em 4em;
-    width: 50%; }
+    width: 25%; }
   #banner .image {
     -moz-flex-grow: 0;
     -webkit-flex-grow: 0;
