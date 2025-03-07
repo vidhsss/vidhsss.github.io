@@ -2148,10 +2148,7 @@ button,
       -webkit-object-position: center;
       -ms-object-position: center;
       object-position: center;
-      width: 15%;
-    height: auto;
-    display: block;
-    margin: 30px auto;}
+      width: 15%;}
 /* .banner-image img {
     width: 15%; /* Smaller percentage of container */
     height: auto;
