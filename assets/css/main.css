@@ -2138,10 +2138,7 @@ button,
     flex-shrink: 0;
     display: block;
     margin: 0 0 2em 4em;
-    flex-basis: 200px !important; /* Control the base width of the image container */
-    flex-grow: 0 !important;
-    flex-shrink: 0 !important;
-    width: auto !important;}
+    flex-basis: 200px !important; /* Control the base width of the image container */}
     #banner .image img {
       height: 25%;
       -moz-object-fit: cover;
