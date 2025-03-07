@@ -2148,7 +2148,16 @@ button,
       -webkit-object-position: center;
       -ms-object-position: center;
       object-position: center;
-      width: 100%; }
+      width: 15%;
+    height: auto;
+    display: block;
+    margin: 30px auto;}
+/* .banner-image img {
+    width: 15%; /* Smaller percentage of container */
+    height: auto;
+    display: block;
+    margin: 30px auto;
+} */
   @media screen and (orientation: portrait) {
     #banner {
       -moz-flex-direction: column-reverse;
