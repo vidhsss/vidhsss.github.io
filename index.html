@@ -12,13 +12,49 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
 		/* Reduce Image Size */
-		.banner-image img {
-		    width: 10000 auto; /* Adjust size as needed */
-		    height: 1000 auto;
-		    border-radius: 50%; /* Make it circular if preferred */
-/* 		    display: block; */
-                 
+		#banner .banner-inner {
+		  display: flex;
+		  align-items: center;
+		  justify-content: space-between;
+		  gap: 2.5rem;
+		  padding: 2rem 0;
 		}
+		
+		#banner .content {
+		  flex: 1 1 0;
+		  max-width: 600px;
+		}
+		
+		#banner .image {
+		  flex: 1 1 0;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		}
+		
+		#banner .image img {
+		  width: 330px;           /* Adjust width as you like */
+		  max-width: 100%;
+		  height: auto;
+		  border-radius: 50%;     /* Makes it a circle */
+		  box-shadow: 0 2px 24px rgba(0,0,0,0.07); /* Optional, soft shadow */
+		}
+
+		@media (max-width: 900px) {
+		  #banner .banner-inner {
+		    flex-direction: column;
+		    gap: 1.5rem;
+		    text-align: center;
+		  }
+		  #banner .content,
+		  #banner .image {
+		    max-width: 100%;
+		  }
+		  #banner .image img {
+		    width: 200px;
+		  }
+		}
+
 	        </style>
 	</head>
 	<body class="is-preload">
