@@ -11,163 +11,830 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-		/* Reduce Image Size */
+		/* Modern Clean Design */
+		:root {
+		  --primary-red: #C41230;
+		  --light-red: #e63946;
+		  --dark-red: #a01828;
+		  --text-dark: #2b2d42;
+		  --text-light: #6c757d;
+		  --bg-light: #f8f9fa;
+		  --white: #ffffff;
+		}
+
+		body {
+		  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		  line-height: 1.6;
+		  color: var(--text-dark);
+		}
+
+		/* Header Styling */
+		#header {
+		  background: var(--white);
+		  padding: 1rem 0;
+		  position: sticky;
+		  top: 0;
+		  z-index: 1000;
+		  border-bottom: 1px solid rgba(0,0,0,0.07);
+		  display: flex;
+		  align-items: center;
+		  justify-content: space-between;
+		}
+
+		#header .logo {
+		  color: var(--primary-red) !important;
+		  font-size: 1.5rem;
+		  font-weight: 700;
+		  text-decoration: none;
+		}
+
+		#header .icons {
+		  display: flex;
+		  align-items: center;
+		  gap: 1rem;
+		}
+
+		/* Navigation Menu */
+		.nav-menu {
+		  list-style: none;
+		  display: flex;
+		  align-items: center;
+		  gap: 1.5rem;
+		  margin: 0;
+		  padding: 0;
+		}
+
+		.nav-menu li a {
+		  color: var(--text-dark);
+		  text-decoration: none;
+		  font-weight: 500;
+		  font-size: 0.95rem;
+		  position: relative;
+		  padding: 0.25rem 0;
+		  transition: color 0.2s ease;
+		}
+
+		.nav-menu li a:hover {
+		  color: var(--primary-red);
+		}
+
+		.nav-menu li a::after {
+		  content: '';
+		  position: absolute;
+		  left: 0;
+		  bottom: -4px;
+		  height: 2px;
+		  width: 0;
+		  background: linear-gradient(135deg, var(--primary-red) 0%, var(--light-red) 100%);
+		  transition: width 0.2s ease;
+		}
+
+		.nav-menu li a:hover::after {
+		  width: 100%;
+		}
+
+		/* CV Button */
+		.nav-cv-btn {
+		  background: linear-gradient(135deg, var(--primary-red) 0%, var(--light-red) 100%);
+		  color: #fff !important;
+		  padding: 0.55rem 1.1rem;
+		  border-radius: 22px;
+		  text-decoration: none;
+		  font-weight: 600;
+		  box-shadow: 0 2px 8px rgba(196,18,48,0.18);
+		  transition: transform 0.2s ease, box-shadow 0.2s ease;
+		}
+
+		.nav-cv-btn:hover {
+		  transform: translateY(-2px);
+		  box-shadow: 0 6px 18px rgba(196,18,48,0.25);
+		}
+
+		/* Mobile menu toggle */
+		.mobile-menu-toggle {
+		  display: none;
+		  flex-direction: column;
+		  gap: 4px;
+		  cursor: pointer;
+		  padding: 4px;
+		  margin-left: 0.5rem;
+		}
+
+		.mobile-menu-toggle span {
+		  width: 24px;
+		  height: 2px;
+		  background: var(--text-dark);
+		  border-radius: 2px;
+		}
+
+		/* Banner Section */
+		#banner {
+		  background: var(--white);
+		  padding: 4rem 0;
+		  margin-bottom: 1rem;
+		}
+
 		#banner .banner-inner {
 		  display: flex;
 		  align-items: center;
 		  justify-content: center;
-		  gap: 2.5rem;
-		  padding: 1rem 0;
-		  margin: 0.5rem auto;
-		  max-width: 1000px;
+		  gap: 3rem;
+		  max-width: 1200px;
+		  margin: 0 auto;
+		  padding: 0 2rem;
 		}
-		
+
 		#banner .content {
-		  flex: 1 1 0;
+		  flex: 0 1 600px;
 		  max-width: 600px;
 		}
-		
-		#banner .image {
-		  flex: 1 1 0;
-		  display: flex;
-		  align-items: center;
-		  justify-content: center;
-		}
-		
-		#banner .image img {
-		  width: 330px;           /* Adjust width as you like */
-		  max-width: 100%;
-		  height: auto;
-		  border-radius: 50%;     /* Makes it a circle */
-		  border: 3px solid #C41230;  /* Red border */
-		  box-shadow: 0 2px 24px rgba(0,0,0,0.07); /* Optional, soft shadow */
-		}
 
-		/* Add margins to main content */
-		#main .inner {
-		  max-width: 1000px;
-		  margin: 0 auto;
-		  padding: 0;
-		}
-
-		/* Red color for Vidhi Jain in header */
-		#header .logo {
-		  color: #C41230 !important;
-		}
-
-		/* Red color for Vidhi Jain in banner h1 */
 		#banner h1 {
-		  color: #C41230 !important;
-		}
-
-		/* Add some spacing between sections */
-		#main section {
+		  color: var(--primary-red);
+		  font-size: 3rem;
+		  font-weight: 700;
 		  margin-bottom: 0.5rem;
-		  padding: 1rem 0;
+		  line-height: 1.2;
 		}
 
-		/* Sequential Publications Layout */
-		.publications-list {
+		#banner h2 {
+		  color: var(--text-light);
+		  font-size: 1.3rem;
+		  font-weight: 400;
+		  margin-bottom: 2rem;
+		}
+
+		#banner p {
+		  font-size: 1.1rem;
+		  line-height: 1.8;
+		  margin-bottom: 1.5rem;
+		  color: var(--text-dark);
+		}
+
+		#banner .highlight {
+		  color: var(--primary-red);
+		  font-weight: 600;
+		}
+
+		#banner .image {
+		  flex: 0 0 280px;
+		}
+
+		#banner .image img {
+		  width: 280px;
+		  height: 280px;
+		  border-radius: 50%;
+		  border: 4px solid var(--primary-red);
+		  box-shadow: 0 10px 30px rgba(196, 18, 48, 0.2);
+		  object-fit: cover;
+		}
+
+		/* Main Content */
+		#main .inner {
+		  max-width: 1200px;
+		  margin: 0 auto;
+		  padding: 0 2rem;
+		}
+
+		/* Section Headers */
+		.major h2 {
+		  color: var(--primary-red);
+		  font-size: 1.5rem;
+		  /* font-weight: 700; */
+		  text-align: center;
+		  margin-bottom: 3rem;
+		  position: relative;
+		}
+
+		/* .major h2::after {
+		  content: '';
+		  position: absolute;
+		  bottom: -10px;
+		  left: 50%;
+		  transform: translateX(-50%);
+		  width: 60px;
+		  height: 3px;
+		  background: var(--primary-red);
+		  border-radius: 2px;
+		} */
+
+		/* Publications header alignment */
+		#publications header.major {
+		  max-width: 1000px;
+		  margin: 0 auto 1.25rem auto;
+		}
+
+		#publications header.major h2 {
+		  text-align: left;
+		  margin-bottom: 1.25rem;
+		}
+
+		#publications header.major h2::after {
+		  left: 0;
+		  transform: none;
+		}
+
+		/* Projects header alignment */
+		#projects header.major {
+		  max-width: 1000px;
+		  margin: 0 auto 1.25rem auto;
+		}
+
+		#projects header.major h2 {
+		  text-align: left;
+		  margin-bottom: 1.25rem;
+		}
+
+		/* Research Focus Section */
+		.research-focus {
+		  background: var(--white);
+		  padding: 2rem;
+		  margin: 2rem auto 3rem auto;
+		  text-align: center;
+		  max-width: 1000px;
+		  border-radius: 10px;
+		  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+		}
+
+		.research-focus h3 {
+		  color: var(--primary-red);
+		  font-size: 1.8rem;
+		  margin-bottom: 1.5rem;
+		  font-weight: 600;
+		}
+
+		.research-focus p {
+		  font-size: 1.1rem;
+		  line-height: 1.8;
+		  color: var(--text-dark);
+		  max-width: 900px;
+		  margin: 0 auto;
+		}
+
+		/* Projects Grid */
+		.projects-grid {
+		  display: grid;
+		  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		  gap: 2rem;
+		  margin-bottom: 4rem;
+		}
+
+		.project-card {
+		  background: var(--white);
+		  border-radius: 15px;
+		  overflow: hidden;
+		  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+		  transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.project-card:hover {
+		  transform: translateY(-5px);
+		  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+		}
+
+		.project-card .image {
+		  height: 200px;
+		  overflow: hidden;
+		}
+
+		.project-card .image img {
+		  width: 100%;
+		  height: 100%;
+		  object-fit: cover;
+		  transition: transform 0.3s ease;
+		}
+
+		/* Project card media (image or video) */
+		.project-card .media {
+		  height: 220px;
+		  overflow: hidden;
+		  background: #000;
+		}
+
+		.project-card .media video,
+		.project-card .media img {
+		  width: 100%;
+		  height: 100%;
+		  object-fit: cover;
+		  display: block;
+		}
+
+		.project-card:hover .image img {
+		  transform: scale(1.05);
+		}
+
+		.project-card .content {
+		  padding: 1.25rem;
+		}
+
+		.project-card h3 {
+		  color: var(--primary-red);
+		  font-size: 1.2rem;
+		  margin-bottom: 0.8rem;
+		  font-weight: 600;
+		}
+
+		.project-card p {
+		  color: var(--text-dark);
+		  line-height: 1.5;
+		  margin-bottom: 1.2rem;
+		  font-size: 0.9rem;
+		}
+
+		/* Flip Card Effect */
+		.project-card {
+		  perspective: 1000px;
+		  height: 400px;
+		}
+
+		.project-card .card-inner {
+		  position: relative;
+		  width: 100%;
+		  height: 100%;
+		  text-align: center;
+		  transition: transform 0.8s;
+		  transform-style: preserve-3d;
+		}
+
+		.project-card:hover .card-inner {
+		  transform: rotateY(180deg);
+		}
+
+		.project-card .card-front,
+		.project-card .card-back {
+		  position: absolute;
+		  width: 100%;
+		  height: 100%;
+		  backface-visibility: hidden;
+		  border-radius: 15px;
+		  overflow: hidden;
+		}
+
+		.project-card .card-front {
+		  background: var(--white);
+		  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+		}
+
+		.project-card .card-back {
+		  background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+		  color: var(--white);
+		  transform: rotateY(180deg);
 		  display: flex;
 		  flex-direction: column;
+		  justify-content: center;
+		  align-items: center;
+		  padding: 1.5rem;
+		  text-align: center;
+		}
+
+		.project-card .card-back h3 {
+		  color: var(--white);
+		  font-size: 1.1rem;
+		  margin-bottom: 0.8rem;
+		  font-weight: 600;
+		}
+
+		.project-card .card-back p {
+		  color: rgba(255, 255, 255, 0.9);
+		  line-height: 1.5;
+		  margin-bottom: 1.2rem;
+		  font-size: 0.85rem;
+		}
+
+		.project-card .card-back .tech-stack {
+		  display: flex;
+		  flex-wrap: wrap;
+		  gap: 0.4rem;
+		  justify-content: center;
+		  margin-bottom: 1.2rem;
+		}
+
+		.project-card .card-back .tech-tag {
+		  background: rgba(255, 255, 255, 0.2);
+		  color: var(--white);
+		  padding: 0.25rem 0.6rem;
+		  border-radius: 12px;
+		  font-size: 0.75rem;
+		  font-weight: 500;
+		}
+
+		.project-card .card-back .actions {
+		  display: flex;
+		  gap: 1rem;
+		  justify-content: center;
+		}
+
+		.project-card .card-back .project-link {
+		  color: var(--white);
+		  text-decoration: none;
+		  font-weight: 600;
+		  font-size: 0.9rem;
+		  padding: 0.5rem 1rem;
+		  border: 2px solid rgba(255, 255, 255, 0.3);
+		  border-radius: 20px;
+		  transition: all 0.3s ease;
+		}
+
+		.project-card .card-back .project-link:hover {
+		  background: rgba(255, 255, 255, 0.1);
+		  border-color: rgba(255, 255, 255, 0.5);
+		}
+
+		.project-card .actions {
+		  display: flex;
 		  gap: 1rem;
 		}
 
-		.publication-item {
-		  border-bottom: 1px solid #e0e0e0;
-		  padding-bottom: 1rem;
-		  margin-bottom: 0.5rem;
-		  display: flex;
-		  gap: 2rem;
-		  align-items: flex-start;
+		.project-card .button {
+		  background: var(--primary-red);
+		  color: var(--white);
+		  padding: 0.5rem 1rem;
+		  border-radius: 25px;
+		  text-decoration: none;
+		  font-size: 0.9rem;
+		  transition: all 0.3s ease;
 		}
 
-		.publication-image {
-		  flex-shrink: 0;
-		  width: 200px;
+		.project-card .button:hover {
+		  background: var(--dark-red);
+		  transform: translateY(-2px);
 		}
 
-		.publication-image img {
-		  width: 100%;
-		  height: auto;
-		  border-radius: 8px;
-		  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-		}
-
-		.publication-content {
-		  flex: 1;
-		}
-
-		.publication-item:last-child {
-		  border-bottom: none;
-		  padding-bottom: 0;
-		}
-
-		.publication-content h3 {
-		  color: #C41230;
-		  margin-bottom: 0.5rem;
-		}
-
-		.publication-content .authors {
-		  font-style: italic;
-		  color: #666;
-		  margin-bottom: 1rem;
-		}
-
-		.publication-content .description {
-		  margin-bottom: 1rem;
-		  line-height: 1.6;
-		}
-
-		/* Research content styling */
-		.research-content {
-		  margin: 0.5rem auto;
-		  padding: 1rem 0;
+		/* Publications Section */
+		.publications-grid {
+		  display: grid;
+		  grid-template-columns: 1fr;
+		  gap: 1.75rem;
+		  margin: 0 auto 3rem auto;
 		  max-width: 1000px;
 		}
 
-		.research-content h2 {
-		  margin-bottom: 1rem;
-		  color: #C41230;
+		/* Align publications intro paragraph with same width as list */
+		#publications > p {
+		  max-width: 1000px;
+		  margin: 0 auto 1.5rem auto;
+		  line-height: 1.7;
 		}
 
-		.research-content p {
+		.publication-card {
+		  background: transparent;
+		  border-radius: 0;
+		  overflow: visible;
+		  box-shadow: none;
+		  transition: background 0.2s ease;
+		  display: flex;
+		  flex-direction: row;
+		  padding-bottom: 1.25rem;
+		  border-bottom: none;
+		}
+
+		.publication-card:hover {
+		  background: rgba(196, 18, 48, 0.02);
+		}
+
+		.publication-card .image {
+		  flex: 0 0 140px;
+		  height: 110px;
+		  overflow: hidden;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  border-radius: 8px;
+		  background: #fff;
+		  margin-right: 1.25rem;
+		}
+
+		.publication-card .image img {
+		  width: 100%;
+		  height: 100%;
+		  object-fit: contain;
+		}
+
+		.publication-card .content {
+		  flex: 1;
+		  padding: 0;
+		}
+
+		.publication-card h3 {
+		  color: var(--text-dark);
+		  font-size: 1.1rem;
+		  margin: 0 0 0.4rem 0;
+		  font-weight: 700;
+		}
+
+		.publication-card .authors {
+		  color: var(--text-light);
+		  font-style: italic;
+		  margin: 0 0 0.6rem 0;
+		}
+
+		.publication-card .description {
+		  color: var(--text-dark);
+		  line-height: 1.6;
+		  margin: 0 0 0.6rem 0;
+		}
+
+		/* Minimal inline links in publications */
+		.publication-card .actions {
+		  display: block;
+		}
+
+		.publication-card .actions li {
+		  display: inline;
+		}
+
+		.publication-card .actions li + li::before {
+		  content: ' / ';
+		  color: var(--text-light);
+		}
+
+		.publication-card .actions .button {
+		  background: none !important;
+		  color: var(--primary-red) !important;
+		  padding: 0 !important;
+		  border: none !important;
+		  border-radius: 0 !important;
+		  box-shadow: none !important;
+		  font-weight: 600 !important;
+		  text-decoration: underline;
+		}
+
+		/* Minimal Projects List */
+		.projects-list {
+		  max-width: 1000px;
+		  margin: 0 auto 3rem auto;
+		  display: grid;
+		  grid-template-columns: 1fr;
+		  gap: 1.5rem;
+		}
+
+		.project-item {
+		  display: flex;
+		  flex-direction: column;
+		  gap: 0.4rem;
+		  padding-bottom: 1rem;
+		  border-bottom: none;
+		}
+
+		.project-item h3 {
+		  color: var(--text-dark);
+		  font-size: 1.1rem;
+		  margin: 0;
+		  font-weight: 700;
+		}
+
+		.project-year {
+		  display: inline-block;
+		  margin-left: 0.5rem;
+		  font-size: 0.75rem;
+		  color: var(--primary-red);
+		  background: rgba(196, 18, 48, 0.08);
+		  padding: 0.15rem 0.5rem;
+		  border-radius: 999px;
+		  vertical-align: middle;
+		}
+
+		.project-actions { display: block; }
+		.project-actions li { display: inline; }
+		.project-actions li + li::before { content: ' / '; color: var(--text-light); }
+		.project-actions .project-link { color: var(--primary-red); text-decoration: underline; font-weight: 600; }
+
+		/* Project link styling */
+		.project-card .actions {
+		  display: flex;
+		  gap: 1rem;
+		  flex-wrap: wrap;
+		}
+
+		.project-card .actions li {
+		  display: inline;
+		}
+
+		.project-card .actions li + li::before {
+		  content: ' / ';
+		  color: var(--text-light);
+		  margin: 0 0.5rem;
+		}
+
+		.project-card .project-link {
+		  color: var(--primary-red);
+		  text-decoration: none;
+		  font-weight: 600;
+		  font-size: 0.9rem;
+		  position: relative;
+		  transition: color 0.2s ease;
+		}
+
+		.project-card .project-link:hover {
+		  color: var(--dark-red);
+		}
+
+		.project-card .project-link::after {
+		  content: '';
+		  position: absolute;
+		  left: 0;
+		  bottom: -2px;
+		  height: 1px;
+		  width: 0;
+		  background: var(--primary-red);
+		  transition: width 0.2s ease;
+		}
+
+		.project-card .project-link:hover::after {
+		  width: 100%;
+		}
+
+		/* Skills Section */
+		.skills-grid {
+		  display: grid;
+		  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		  gap: 2rem;
+		}
+
+		.skill-card {
+		  background: var(--white);
+		  border-radius: 15px;
+		  padding: 2rem;
+		  text-align: center;
+		  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+		  transition: transform 0.3s ease;
+		}
+
+		.skill-card:hover {
+		  transform: translateY(-3px);
+		}
+
+		.skill-card .icon {
+		  color: var(--primary-red);
+		  font-size: 2.5rem;
 		  margin-bottom: 1rem;
+		}
+
+		.skill-card h3 {
+		  color: var(--primary-red);
+		  font-size: 1.3rem;
+		  margin-bottom: 1rem;
+		  font-weight: 600;
+		}
+
+		.skill-card p {
+		  color: var(--text-dark);
 		  line-height: 1.6;
 		}
 
+		/* Footer */
+		.site-footer {
+		  background: var(--white);
+		  border-top: 1px solid rgba(0,0,0,0.08);
+		  padding: 2rem 0;
+		}
+
+		.site-footer .footer-inner {
+		  max-width: 1200px;
+		  margin: 0 auto;
+		  padding: 0 2rem;
+		  display: flex;
+		  align-items: center;
+		  justify-content: space-between;
+		  gap: 1rem;
+		  flex-wrap: wrap;
+		}
+
+		.site-footer .links {
+		  display: flex;
+		  gap: 1rem;
+		  flex-wrap: wrap;
+		}
+
+		.site-footer a {
+		  color: var(--primary-red);
+		  text-decoration: none;
+		}
+
+		.site-footer a:hover {
+		  text-decoration: underline;
+		}
+
+		/* Responsive Design */
 		@media (max-width: 900px) {
 		  #banner .banner-inner {
 		    flex-direction: column;
-		    gap: 1.5rem;
 		    text-align: center;
+		    gap: 2rem;
 		  }
-		  #banner .content,
-		  #banner .image {
-		    max-width: 100%;
+
+		  #banner h1 {
+		    font-size: 2.5rem;
 		  }
+
 		  #banner .image img {
-		    width: 200px;
+		    width: 220px;
+		    height: 220px;
 		  }
-		  
+
+		  .projects-grid,
+		  .publications-grid {
+		    grid-template-columns: 1fr;
+		  }
+
+		  .publication-card {
+		    flex-direction: column;
+		  }
+
+		  .publication-card .image {
+		    flex: 0 0 200px;
+		    height: 200px;
+		  }
+
 		  #main .inner {
 		    padding: 0 1rem;
 		  }
 
-		  /* Mobile responsive for publications */
-		  .publication-item {
-		    flex-direction: column;
-		    gap: 1rem;
+		  .research-focus {
+		    padding: 2rem;
 		  }
-		  
-		  .publication-image {
-		    width: 100%;
-		    max-width: 300px;
-		    margin: 0 auto;
+
+		  /* Mobile nav behavior */
+		  #header {
+		    position: sticky;
+		    top: 0;
+		  }
+
+		  .mobile-menu-toggle {
+		    display: flex;
+		  }
+
+		  .nav-menu {
+		    display: none;
+		    position: absolute;
+		    right: 1rem;
+		    top: 60px;
+		    background: #fff;
+		    border: 1px solid rgba(0,0,0,0.08);
+		    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+		    border-radius: 12px;
+		    padding: 0.75rem 1rem;
+		    flex-direction: column;
+		    gap: 0.75rem;
+		    z-index: 1001;
+		  }
+
+		  .nav-menu.active {
+		    display: flex;
+		  }
+
+		  /* Mobile flip card adjustments */
+		  .project-card {
+		    height: 350px;
+		  }
+
+		  .project-card .card-back {
+		    padding: 1.5rem;
+		  }
+
+		  .project-card .card-back h3 {
+		    font-size: 1.1rem;
+		  }
+
+		  .project-card .card-back p {
+		    font-size: 0.9rem;
+		  }
+
+		  .project-card .card-back .tech-stack {
+		    gap: 0.3rem;
+		  }
+
+		  .project-card .card-back .tech-tag {
+		    font-size: 0.75rem;
+		    padding: 0.2rem 0.6rem;
 		  }
 		}
 
-	        </style>
+		/* Disable flip on touch devices for better UX */
+		@media (hover: none) and (pointer: coarse) {
+		  .project-card:hover .card-inner {
+		    transform: none;
+		  }
+		  
+		  .project-card .card-back {
+		    display: none;
+		  }
+		}
+
+		/* Smooth scrolling */
+		html {
+		  scroll-behavior: smooth;
+		}
+
+		/* Button animations */
+		.button {
+		  transition: all 0.3s ease;
+		}
+
+		.button:hover {
+		  transform: translateY(-2px);
+		}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -179,27 +846,41 @@
 						<div class="inner">
 
 							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Vidhi Jain</strong></a>
-									<ul class="icons">
-										<li><a href="https://github.com/vidhsss/" class="icon brands fa-github"><span class="label">Github</span></a></li>
-										<li><a href="https://www.linkedin.com/in/vidhijain23/" class="icon brands fa-linkedin"><span class="label">LinkedIN</span></a></li>
-										<li><a href="https://scholar.google.com/citations?hl=en&user=l3j5XvsAAAAJ" class="icon brands fa-gg-circle"><span class="label">Google Scholar</span></a></li>
-<!-- 										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li> -->
-									</ul> 
+								<header id="header" role="navigation" aria-label="Primary">
+									<a href="#banner" class="logo"><strong>Vidhi Jain</strong></a>
+									<nav aria-label="Main">
+										<ul class="nav-menu" id="primary-menu">
+											<!-- <li><a href="#banner">About</a></li> -->
+											<!-- <li><a href="#research">Research</a></li> -->
+											<!-- <li><a href="#publications">Publications</a></li> -->
+											<!-- <li><a href="#projects">Projects</a></li> -->
+											<!-- <li><a href="#contact">Contact</a></li> -->
+											<!-- <li><a href="mailto:vidhij@andrew.cmu.edu">vidhij@andrew.cmu.edu</a></li>
+											<li><a href="https://www.linkedin.com/in/vidhijain23/" target="_blank" rel="noopener">LinkedIn</a></li> -->
+											<!-- <li><a class="nav-cv-btn" href="assets/Vidhi_Jain_CV.pdf" target="_blank" rel="noopener">Download CV</a></li> -->
+											<li><a href="mailto:vidhij@andrew.cmu.edu">vidhij@andrew.cmu.edu</a></li>
+											<li><a href="https://www.linkedin.com/in/vidhijain23/" target="_blank" rel="noopener">LinkedIn</a></li>
+											<li><a href="https://github.com/vidhsss/" target="_blank" rel="noopener">GitHub</a></li>
+											<li><a href="https://scholar.google.com/citations?hl=en&user=l3j5XvsAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+
+										</ul>
+									</nav>
+									<button class="mobile-menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
+										<span></span>
+										<span></span>
+										<span></span>
+									</button>
 								</header>
 
 							<!-- Banner -->
 								<section id="banner">
 								  <div class="banner-inner">
 								    <div class="content">
-								      <header>
-								        <h1>Vidhi Jain<br /></h1>
-										<h2>Masters Student | Carnegie Mellon University<br /></h2>
-								      </header>
-								      <p>I am a graduate student majoring in <span style="color: #C41230; font-weight: bold;">Machine Learning</span> at CMU. I work under <span style="color: #C41230; font-weight: bold;">Professor Aarti Singh (NSF AI-SDM) </span>, passionate about <span style="color: #C41230; font-weight: bold;">AI-driven decision-making</span>, <span style="color: #C41230; font-weight: bold;">foundation models</span>, and <span style="color: #C41230; font-weight: bold;">agentic AI</span>. My work focuses on building scalable AI systems, optimizing ML models, and applying machine learning to real-world challenges, specially healthcare. </p>
-										<p>Previously, I worked at <span style="color: #C41230; font-weight: bold;">Wells Fargo</span> as a machine learning engineer. I received my bachelor's in electrical engineering</span> with a minor in AI from Netaji Subhas University of Technology.(formally DIT).</p>
+								      <h1>Vidhi Jain</h1>
+								      <h2>Machine Learning Researcher | Carnegie Mellon University</h2>
+								      <p>I am a <span class="highlight">Machine Learning</span> graduate student at CMU, working under <span class="highlight">Professor Aarti Singh (NSF AI-SDM)</span>. My research focuses on <span class="highlight">AI-driven decision-making</span>, <span class="highlight">cognitive alignment</span>, and <span class="highlight">multimodal systems</span>.</p>
+								      <p>Previously, I worked at <span class="highlight">Wells Fargo</span> as a machine learning engineer, and I received my bachelor's in electrical engineering with a minor in AI from Netaji Subhas University of Technology.</p>
+									  <p>My research lies at the <span class="highlight">intersection of AI-driven decision-making, cognitive alignment, and healthcare applications</span>. I design frameworks that bridge the gap between <span class="highlight">how humans think and how AI reasons</span>, ensuring models are not only accurate but also psychologically aligned and trustworthy. </p>
 								      <a href="assets/Vidhi_Jain_CV.pdf" class="button">Download CV</a>
 								    </div>
 								    <div class="image">
@@ -208,174 +889,368 @@
 								  </div>
 								</section>
 
-								<div>
-									<header class="major"></header>
-						            <h2>Current Research</h2>
-									</header>
-						            <p>My current research focuses on AI-driven decision-making.</p>
-								    <p> Maternal Healthcare Chatbot in collaboration with NIVI: Formulated and implemented a RAG pipeline, fine-tuning an open-source LLM on maternal health guidelines to provide evidence-based, personalized healthcare recommendations.
-									Refined FAISS-based knowledge retrieval, reducing inference latency by 40% and improving response relevance by 18%. Developed predictive user engagement and health risk assessment models improving risk prediction accuracy by 23%.
-								    </p><p>LLM-based Intervention: Engineered a utility-based intervention system (DeLLMa) leveraging probabilistic decision-state modeling, game theory, and LLM-driven personalized messaging to dynamically tailor interventions for undecided voters. 
-									Designed a pipeline for factual knowledge retrieval, cognitive adaptation, and persuasion strategy selection to optimize decision outcomes.
-									Modeled voter behavior using advanced ML pipelines and LLMs to pinpoint critical factors and accurately anticipate voter decisions. </p>
-						        </div>
+							<!-- Research Focus -->
+							<!-- <div id="research" class="research-focus">
+								<h3>Research Focus</h3>
+								<p>My research lies at the intersection of AI-driven decision-making, cognitive alignment, and healthcare applications. I design frameworks that bridge the gap between how humans think and how AI reasons, ensuring models are not only accurate but also psychologically aligned and trustworthy. This spans from building cognitive alignment frameworks (ICPAF) and simulating human decision-making in disasters, to applying RAG pipelines and LLM fine-tuning in maternal healthcare and developing LLM-based adaptive intervention systems (DeLLMa) for real-world decision influence.</p>
+							</div> -->
 
+							<!-- Publications & Research Section -->
+							<section id="publications">
+								<header class="major">
+									<h2>Publications & Research</h2>
+								</header>
+								<!-- <p>My research lies at the intersection of AI-driven decision-making, cognitive alignment, and healthcare applications. I design frameworks that bridge the gap between how humans think and how AI reasons, ensuring models are not only accurate but also psychologically aligned and trustworthy. </p> -->
 							
-								<section>
-									<header class="major">
-										<h2>Research and Projects</h2>
-									</header>
-									<div class="posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-											<h3>Ambient intelligence-based multimodal human action recognition for autonomous systems</h3>
-											<p>This work presents a method based on Bi-Convolutional Recurrent Neural Network (Bi-CRNN) -based Feature Extraction and then Random Forest classification for achieving outcomes utilizing Ambient Intelligence that are at the cutting edge of human action recognition for Autonomous Robots. The auto fusion technique used has improved fusion for utilizing and processing data from various sensors. This paper has drawn comparisons with already existing algorithms for Human Action Recognition (HAR) and tried to propose a heuristic and constructive hybrid deep learning-based algorithm with an accuracy of 94.7%.
-											</p>
+								<div id="projects"></div>
+								<div class="publications-grid">
+									<article class="publication-card">
+										<div class="image">
+											<img src="images/icpaf.png" alt="Mind the Gap Research" />
+										</div>
+										<div class="content">
+											<h3>Mind the Gap: Bridging AI-Human Cognitive Misalignment Through Psychological Personas</h3>
+											<p class="authors">V Jain* et al, AAAI [in review]</p>
+											<p class="description">This addresses the critical challenge of AI-human cognitive misalignment by developing psychological personas that bridge the gap between artificial intelligence systems and human cognitive processes.</p>
 											<ul class="actions">
-												<li><a href="https://www.sciencedirect.com/science/article/abs/pii/S0019057822005638" class="button">Paper</a></li>
+												<li><a href="#" class="button">Paper (In Review)</a></li>
 											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
+										</div>
+									</article>
+									
+									<article class="publication-card">
+										<div class="image">
+											<img src="images/neurips.png" alt="Contextual Bandits Research" />
+										</div>
+										<div class="content">
+											<h3>Contextual Bandits with Online Arm Generation</h3>
+											<p class="authors">J. Xu*, V. Jain*, NeurIPS [in review]</p>
+											<p class="description">Explores contextual bandits with online arm generation, presenting novel approaches to dynamic decision-making in machine learning systems.</p>
+											<ul class="actions">
+												<li><a href="#" class="button">Paper (In Review)</a></li>
+											</ul>
+										</div>
+									</article>
+									
+									<article class="publication-card">
+										<div class="image">
+											<img src="images/pic01.jpg" alt="Ambient Intelligence Research" />
+										</div>
+										<div class="content">
+											<h3>Ambient Intelligence-based multimodal human action recognition for autonomous systems</h3>
+											<p class="authors">V Jain* et al, ISA Transactions [Paper]</p>
+											<p class="description">Presents a method based on Bi-Convolutional Recurrent Neural Network (Bi-CRNN)-based Feature Extraction and Random Forest classification for human action recognition in autonomous robots.</p>
+											<ul class="actions">
+												<li><a href="https://www.sciencedirect.com/science/article/abs/pii/S0019057822005638" class="button">Read Paper</a></li>
+											</ul>
+										</div>
+									</article>
+
+									<!-- <article class="publication-card">
+										<div class="image">
+											<img src="images/speech.png" alt="Cognitive Multimodal Speech Recognition" />
+										</div>
+										<div class="content">
+											<h3>Cognitive Multimodal Speech Recognition</h3>
+											<p class="authors">Research Project</p>
+											<p class="description">Built multimodal pipeline combining vision (Transformer lip-reading, ViT-B/16) and self-supervised audio (HuBERT, wav2vec 2.0). Applied knowledge distillation to compress large multimodal models, reducing size by 60% with minimal WER/CER drop.</p>
+											<ul class="actions">
+												<li><a href="https://github.com/vidhsss/human_speech" class="button">View Project</a></li>
+											</ul>
+										</div>
+									</article> -->
+
+									<article class="publication-card">
+										<div class="image">
+											<img src="images/maternal.png" alt="Maternal Health Agent" />
+										</div>
+										<div class="content">
+											<h3>Maternal Health Agent</h3>
+											<p class="authors">Research Project</p>
+											<p class="description">Designed safety-critical RAG pipelines with HNSW indexing, hybrid semantic chunking, and multi-stage reranking, achieving
+												+18% retrieval relevance and –25% latency using vLLM.
+												Integrated emergency-aware reasoning framework with symptom triage, intent classification, and medical guardrails with knowledge
+												distillation of open-source LLMs ( med-alpacca, lamma).</p>
+											<ul class="actions">
+												<li><a href="https://github.com/vidhsss/Maternal_Agent" class="button">View Project</a></li>
+											</ul>
+										</div>
+									</article>
+
+									<article class="publication-card">
+										<div class="image">
+											<img src="images/pic02.jpg" alt="Deep Neural Networks & Human Perception" />
+										</div>
+										<div class="content">
 											<h3>Can Deep Neural Network Mimic Human Perception</h3>
-											<p>Developed methods that mitigate limitations of  CNNs along with self-supervised training and their co-relation with human perception.
-												The phenomenons like the Thatcher effect, Weber’s law, Occlusion, and Global advantage as shown by human perception are tested for various CNN architecture trained using different datasets and training methods. 
+											<p class="authors">Research Project</p>
+											<p class="description">Advanced human visual attention modeling using PredNet, achieving 23% improvement over baseline saliency predictions.
+												Investigated AI-visual human perception gaps in self-supervised learning systems (SimCLR, BYOL, etc), developing
+												StyleGAN-based data augmentation techniques that improved model robustness by 18%, mitigating perceptual phenomena.
 												</p>
 											<ul class="actions">
-												<li><a href="https://github.com/vidhsss/Human-perception" class="button">Github</a></li>
+												<li><a href="https://github.com/vidhsss/Human-perception" class="button">View Code</a></li>
 											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-											<h3>Behavior Analysis in Songbird</h3>
-											<p>Employed audio processing and analysis to investigate how motion and sleep exhaustion affect songbird learning. The song syllables across days and timing were separated using amplitude cutting and then further represented using Umap and t-SNE. 
-												Each day, the 2D syllable representations provided insights into the exploration or exploitation of new minima, with clusters indicating local minima and the formation of crystallized syllables</p>
-											<ul class="actions">
-												<li><a href="https://github.com/rsankar9/Behavior_analysis" class="button">Github</a></li>
-											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-											<h3>AGRI-AI</h3>
-											<p>Deployed an end-to-end web application to assist farmers in administering their crop quality, suggesting crop price, and predicting the yield taking into account the soil and crop type, all by the comfort of a click of a button.
-												Used CatBoost Classifier, Gaussian Naïve Bayes Model, MobileNet, Random Forest Regressor, and Deep bidirectional LSTM Models one for each feature in the project. The aggregate accuracy achieved by the 5 Models is 91%.
-											</p>
-											<ul class="actions">
-												<li><a href="http://agri-ai.herokuapp.com/" class="button">Website</a></li>
-												<li><a href="https://github.com/vidhsss/AgriAI-1" class="button">Github</a></li>
-											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-											<h3>Covid Home Care</h3>
-											<p>It is an all-in-one web app for home-quarantined COVID patients assisting them in disease severity classification, accessing resources, a positive news portal, and a content-based recommendation system.  ( Random Forest Classifier, Scikit-learn, nltk, smote, MultinomialNB)
-												Equipped with an AI chatbot providing information and the latest tweet based on user demand (oxygen, bed, etc)  and city/state during the crisis. It also gives information on vaccination procedures, plasma, and health and fitness during COVID. (nltk, tweepy, ANN, flask, html).</p>
-											<ul class="actions">
-												<li><a href="http://health-home.herokuapp.com/" class="button">Website</a></li>
-												<li><a href="https://github.com/vidhsss/covid-homecare" class="button">Github</a></li>
-											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
-											<h3>Hybrid Attention Multi-modal Learning for Perceived Mental Workload Classification</h3>
-											<p>The project is based on the applicability of the brain-computer interface using multimodal biosignals and attention networks for quantifying cognitive load in well-validated problem-solving tasks.
-												The proposed approach first models each modality through LSTM and Convolution based self-attention. Then it applies bi-modal attention to pairwise modalities and tries to learn the contributing features amongst them. It gives an accuracy of 92.3%.</p>
-											<ul class="actions">
-												<li><a href="https://github.com/vidhsss/hybrid_attention_model" class="button">Github</a></li>
-											</ul>
-										</article>
-									</div>
-								</section>
+										</div>
+									</article>
 
-								<!-- Publications Section -->
-								<section>
-									<header class="major">
-										<h2>Publications</h2>
-									</header>
-									<div class="publications-list">
-										<article class="publication-item">
-											<div class="publication-image">
-												<img src="images/pic07.jpg" alt="IoT Smart Homes Research" />
-											</div>
-											<div class="publication-content">
-												<h3>A Novel Hypertuned Prophet-Based Power Saving Approach for IoT Enabled Smart Homes</h3>
-												<p class="authors">Published in Wiley's Transactions on Emerging Telecommunications Technologies</p>
-												<p class="description">This research presents an innovative approach to power optimization in smart home environments using IoT technology. The work demonstrates significant improvements in energy efficiency through advanced predictive modeling techniques.</p>
-												<ul class="actions">
-													<li><a href="https://onlinelibrary.wiley.com/doi/full/10.1002/ett.4597" class="button">Read Paper</a></li>
-												</ul>
-											</div>
-										</article>
-										
-										<article class="publication-item">
-											<div class="publication-image">
-												<img src="images/pic08.jpg" alt="NFNet Bearing Fault Research" />
-											</div>
-											<div class="publication-content">
-												<h3>An NFNet-Based Approach for Enhanced Bearing Fault Classification Using Vibrational Signal Analysis</h3>
-												<p class="authors">Published in IEEE</p>
-												<p class="description">This work demonstrates advanced fault detection techniques using neural networks and vibrational analysis for industrial applications. The proposed NFNet architecture shows superior performance in bearing fault classification tasks.</p>
-												<ul class="actions">
-													<li><a href="https://ieeexplore.ieee.org/document/10306508" class="button">Read Paper</a></li>
-												</ul>
-											</div>
-										</article>
-										
-										<article class="publication-item">
-											<div class="publication-image">
-												<img src="images/pic09.jpg" alt="RLET Network Security Research" />
-											</div>
-											<div class="publication-content">
-												<h3>RLET, Light Weight Model for Multi-class Network Intrusion Detection</h3>
-												<p class="authors">Network Security Research</p>
-												<p class="description">A lightweight machine learning model for detecting network intrusions across multiple classes, focusing on efficiency and accuracy in cybersecurity applications. The model achieves high detection rates while maintaining computational efficiency.</p>
-												<ul class="actions">
-													<li><a href="https://newsletter.x-mol.com/paper/1692596136160546816" class="button">Read Paper</a></li>
-												</ul>
-											</div>
-										</article>
-									</div>
-								</section>
+									<article class="publication-card">
+										<div class="image">
+											<img src="images/pic03.jpg" alt="Behavior Analysis in Songbirds" />
+										</div>
+										<div class="content">
+											<h3>Behavior Analysis in Songbirds</h3>
+											<p class="authors">Research Project</p>
+											<p class="description"> Developed a scalable behavioral analytics pipeline to segment and cluster over 400 hours of songbird vocalizations using spectrogram
+												analysis, quantifying the impact of motion and sleep deprivation on cognitive performance patterns.
+												
+												Daily syllable "crystallization" followed a gradient descent-like process, mapping shifts between exploratory and exploitative behavior.</p>
+											<ul class="actions">
+												<li><a href="https://github.com/rsankar9/Behavior_analysis" class="button">View Code</a></li>
+											</ul>
+										</div>
+									</article>
+								</div>
+							</section>
 
-								<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Skills</h2>
-									</header>
-									<div class="features">
-										<article>
-											<span class="icon fa-gem"></span>
-											<div class="content">
-												<h3>Programming Languages</h3>
-												<p>Python, C++, C, Java, Matlab, Html, VHDL</p>
+							<!-- Projects Section (Minimal) -->
+							<section id="projects">
+								<header class="major">
+									<h2>Selected Projects</h2>
+								</header>
+								<div class="projects-grid">
+									<article class="project-card">
+										<div class="card-inner">
+											<div class="card-front">
+												<div class="media">
+													<!-- Replace with a real video when available -->
+													<video autoplay loop muted playsinline preload="metadata" >
+														<source src="images/neurascribe.mp4" type="video/mp4" />
+													</video>
+												</div>
+												<div class="content">
+													<h3>Neurascribe <span class="project-year">2025</span></h3>
+													<p>A voice-to-voice knowledge graph-based journaling-wellness platform that integrates memory weaving and episodic memory recall
+														</p>
+													<ul class="actions">
+														<li><a href="https://neurascribe.ai/" class="project-link">Website</a></li>
+														<!-- <li><a href="#" class="project-link">GitHub</a></li> -->
+													</ul>
+												</div>
 											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-paper-plane"></span>
-											<div class="content">
-												<h3>Tools and Technologies</h3>
-												<p>Machine Learning, Neural Networks and Deep Learning, Data Anlysis, Predictive Modeling, Data Structures and Algorithms, Computer Vision, NLP, Clustering, Audio Analysis</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-rocket"></span>
-											<div class="content">
-												<h3>Frameworks</h3>
-												<p>Tensorflow, Keras, Pytorch, Flask, Django, Google Cloud Ai platform, Springboot, Maven</p>
-											</div>
-										</article>
-										
-									</div>
-								</section>
+											<div class="card-back">
+												<h3>Neurascribe</h3>
+												<p>● A voice-to-voice journaling-wellness platform that integrates memory weaving and episodic memory recall, leveraging hybrid retrieval
+													from vector embeddings (Pinecone) and knowledge graphs, reducing latency by 40% using vLLMs.
+													● Implemented multi-stage reranking pipeline with emotional inference and fine-tuned LLMs using LoRA adaptation.</p>
+												<div class="tech-stack">
+													<span class="tech-tag">Knowledge Graphs</span>
+													<span class="tech-tag">vLLMs</span>
+													<!-- <span class="tech-tag">Lora</span> -->
+													<!-- <span class="tech-tag">hybrid RAG</span> -->
+													<!-- <span class="tech-tag">async I/O</span> -->
+													<span class="tech-tag">Pinecone</span>
+													<!-- <span class="tech-tag">Conversational Memory</span> -->
+													<!-- <span class="tech-tag">Retrieval-Augmented Generation</span> -->
+													<span class="tech-tag">Memory Weaving</span>
+													<span class="tech-tag">Episodic Memory Recall</span>
+													<span class="tech-tag">Emotional Inference</span>
+													<!-- <span class="tech-tag">Fine-tuned LLMs</span> -->
+													<span class="tech-tag">LoRA</span>
+													<!-- <span class="tech-tag">Cross-encoders</span> -->
+													<!-- <span class="tech-tag">Semantic Similarity Scoring</span> -->
 
-							<!-- Section -->
+												</div>
+												<div class="actions">
+													<a href="https://neurascribe.ai/" class="project-link">Website</a>
+													<!-- <a href="#" class="project-link">GitHub</a> -->
+												</div>
+											</div>
+										</div>
+									</article>
+
+									<article class="project-card">
+										<div class="card-inner">
+											<div class="card-front">
+												<div class="media">
+													<video muted controls poster="images/speech.png">
+														<source src="" type="video/mp4" />
+													</video>
+												</div>
+												<div class="content">
+													<h3>Cognitive Multimodal Speech Recognition <span class="project-year">2025</span></h3>
+													<p>Multimodal lip-reading + self-supervised audio with knowledge distillation.</p>
+													<ul class="actions">
+														<li><a href="https://github.com/vidhsss/human_speech" class="project-link">GitHub</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="card-back">
+												<h3>Cognitive Multimodal Speech Recognition</h3>
+												<!-- <p>Advanced speech recognition system combining visual lip-reading with audio processing, achieving superior accuracy in noisy environments through multimodal fusion.</p> -->
+												<p>Built multimodal pipeline combining vision (Transformer lip-reading, ViT-B/16) and self-supervised audio (HuBERT, wav2vec 2.0). Applied knowledge distillation to compress large multimodal models, reducing size by 60% with minimal WER/CER drop.</p>
+												<div class="tech-stack">
+						
+													<span class="tech-tag">PyTorch</span>
+													<span class="tech-tag">Transformers</span>
+													<span class="tech-tag">Computer Vision</span>
+													<span class="tech-tag">Audio pipeline</span>
+													<span class="tech-tag">Knowledge Distillation</span>
+												</div>
+												<div class="actions">
+													<a href="https://github.com/vidhsss/human_speech" class="project-link">GitHub</a>
+												</div>
+											</div>
+										</div>
+									</article>
+									
+									<article class="project-card">
+										<div class="card-inner">
+											<div class="card-front">
+												<div class="media">
+													<img src="images/needle.png" alt="Needle" />
+												</div>
+												<div class="content">
+													<h3>Needle <span class="project-year">2024</span></h3>
+													<p>A full-stack deep learning library from scratch with Cuda-accelerated operations and automatic differentiation.</p>
+													<ul class="actions">
+														<li><a href="https://github.com/vidhsss/needle" class="project-link">Github</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="card-back">
+												<h3>Needle</h3>
+												<p>Designed and implemented a full-stack deep learning library from scratch with Cuda-accelerated operations and automatic differentiation.
+													Developed modular components, including parameterized layers, loss functions, optimizers, and data loaders.
+													Built state-of-the-art models:  CNNs, RNNs, and Transformers for tasks such as image classification and language modeling.</p>
+												<div class="tech-stack">
+													<span class="tech-tag">Python</span>
+													<span class="tech-tag">Cuda</span>
+													<span class="tech-tag">Automatic Differentiation</span>
+													<span class="tech-tag">Parameterized Layers</span>
+													<span class="tech-tag">Loss Functions</span>
+													<span class="tech-tag">Optimizers</span>
+													<span class="tech-tag">Data Loaders</span>
+													
+												</div>
+												<div class="actions">
+													<a href="https://github.com/vidhsss/needle" class="project-link">Github</a>
+												</div>
+											</div>
+										</div>
+									</article>
+									<article class="project-card">
+										<div class="card-inner">
+											<div class="card-front">
+												<div class="media">
+													<img src="images/pic06.jpg" alt="HAMML for Workload Classification" />
+												</div>
+												<div class="content">
+													<h3>Hybrid Attention Multi-modal Learning for Perceived Mental Workload Classification <span class="project-year">2022</span></h3>
+													<p>Hybrid attention fusion across modalities for workload prediction.</p>
+													<ul class="actions">
+														<li><a href="#" class="project-link">Details</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="card-back">
+												<h3>HAMML Workload Classification</h3>
+												<p>The project is based on the applicability of the brain-computer interface using multimodal biosignals and attention networks for quantifying cognitive load in well-validated problem-solving tasks.
+													The proposed approach firstly models each modality through LSTM and Convolution based self-attention. Then it applies bi-modal attention to pairwise modalities and tries to learn the contributing features amongst them. It gives an accuracy of 92.3%.</p>
+												<div class="tech-stack">
+													<span class="tech-tag">LSTM</span>
+													<span class="tech-tag">Convolution</span>
+													<!-- <span class="tech-tag">Attention Networks</span> -->
+													<span class="tech-tag">Bi-modal Attention</span>
+													<span class="tech-tag">PyTorch</span>
+													<span class="tech-tag">Self-attention</span>
+													<!-- <span class="tech-tag">Bi-modal Attention</span> -->
+
+												</div>
+												<div class="actions">
+													<a href="#" class="project-link">Details</a>
+												</div>
+											</div>
+										</div>
+									</article>
+
+									<article class="project-card">
+										<div class="card-inner">
+											<div class="card-front">
+												<div class="media">
+													<img src="images/pic04.jpg" alt="Agri AI" />
+												</div>
+												<div class="content">
+													<h3>Agri AI <span class="project-year">2021</span></h3>
+													<p>Intelligent crop monitoring system using computer vision and ML to predict yields, detect diseases, and optimize farming practices.</p>
+													<ul class="actions">
+														<li><a href="https://github.com/vidhsss/Agri-AI" class="project-link">GitHub</a></li>
+
+													</ul>
+												</div>
+											</div>
+											<div class="card-back">
+												<h3>Agri AI</h3>
+												<p>Deployed an end-to-end web application to assist farmers in administering their crop quality, suggesting crop price, and predicting the yield taking into account the soil and crop type, all by the comfort of a click of a button.
+													Used CatBoost Classifier, Gaussian Naïve Bayes Model, MobileNet, Random Forest Regressor, and Deep bidirectional LSTM Models one for each feature in the project. The aggregate accuracy achieved by the 5 Models is 91%.</p>
+												<div class="tech-stack">
+													<span class="tech-tag">CatBoost</span>
+													<span class="tech-tag">TensorFlow</span>
+													<span class="tech-tag">OpenCV</span>
+													<span class="tech-tag">IoT</span>
+													<span class="tech-tag"> MobileNet</span>
+												</div>
+												<div class="actions">
+													<a href="https://github.com/vidhsss/Agri-AI" class="project-link">Github</a>
+												</div>
+											</div>
+										</div>
+									</article>
+
+									<article class="project-card">
+										<div class="card-inner">
+											<div class="card-front">
+												<div class="media">
+													<video autoplay loop muted playsinline preload="metadata" poster="images/pic05.jpg">
+														<source src="images/covid.mp4" type="video/mp4" />
+													</video>
+												</div>
+												<div class="content">
+													<h3>Covi Home Bot <span class="project-year">2021</span></h3>
+													<p>Home triage assistant for COVID-era symptom checks and resources.</p>
+													<ul class="actions">
+														<li><a href="#" class="project-link">Details</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="card-back">
+												<h3>Covi Home Bot</h3>
+												<p>AI-powered chatbot providing real-time COVID-19 symptom assessment, resource recommendations, and emergency guidance during the pandemic.</p>
+												<div class="tech-stack">
+													<span class="tech-tag">Python</span>
+													<span class="tech-tag">NLP</span>
+													<span class="tech-tag">Dialogflow</span>
+													<span class="tech-tag">Flask</span>
+													<span class="tech-tag">BERT</span>
+													<span class="tech-tag">Elasticsearch</span>
+												</div>
+												<div class="actions">
+													<a href="#" class="project-link">Details</a>
+												</div>
+											</div>
+										</div>
+									</article>
+
+									
+
+									
+
+									
+								</div>
+							</section>
 
 						</div>
 					</div>
-					
-
-				<!-- Section -->
-
 
 			</div>
 
@@ -385,6 +1260,26 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+		// Mobile menu toggle with aria-expanded update
+		(function() {
+		  var toggle = document.querySelector('.mobile-menu-toggle');
+		  var menu = document.getElementById('primary-menu');
+		  if (toggle && menu) {
+		    toggle.addEventListener('click', function() {
+		      var isOpen = menu.classList.toggle('active');
+		      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+		    });
+		    // Close menu when a link is clicked (mobile)
+		    menu.addEventListener('click', function(e) {
+		      if (e.target.tagName.toLowerCase() === 'a') {
+		        menu.classList.remove('active');
+		        toggle.setAttribute('aria-expanded', 'false');
+		      }
+		    });
+		  }
+		})();
+		</script>
 
 	</body>
 </html>
